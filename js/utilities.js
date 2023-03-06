@@ -2,7 +2,18 @@ function getInputFieldValueById(inputFieldId) {
   const inputField = document.getElementById(inputFieldId);
   const inputFieldValueString = inputField.value;
   const inputFieldValue = parseFloat(inputFieldValueString);
-  return inputFieldValue;
+  if(isNaN(inputFieldValue)){
+    alert('Enter valid number!!!');
+    return;
+  }
+  else if( inputFieldValue < 0){
+    alert('Input should not be negative!!!');
+    return;
+  }
+  else{
+
+    return inputFieldValue;
+  }
 }
 
 function getTextElementValueById(elementId) {
@@ -15,5 +26,11 @@ function getTextElementValueById(elementId) {
 
 function setTextElementValueById(elementId, newValue) {
   const textElement = document.getElementById(elementId);
-  textElement.innerText = newValue;
+  if(isNaN(newValue)){
+    return;
+  }
+  else{
+
+    textElement.innerText = newValue;
+  }
 }
